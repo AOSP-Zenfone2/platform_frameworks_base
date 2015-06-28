@@ -239,7 +239,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     /** Allow some time inbetween the long press for back and recents. */
 
-    private static final int LOCK_TO_APP_GESTURE_TOLERENCE = 200;
+    private static final int LOCK_TO_APP_GESTURE_TOLERENCE = 100;
 
     /**
      * A key that is used to retrieve the value of the checkbox
@@ -248,7 +248,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
      */
     protected static final String SHOW_OPERATOR_NAME = "show_network_name_mode";
 
-    private static final int LOCK_TO_APP_GESTURE_TOLERENCE = 100;
 
 
     /** If true, the system is in the half-boot-to-decryption-screen state.
