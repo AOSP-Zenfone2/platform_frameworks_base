@@ -380,6 +380,8 @@ public class StatusBarWindowView extends FrameLayout {
                     Settings.System.DOUBLE_TAP_SLEEP_GESTURE), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_ANYWHERE), false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -404,6 +406,8 @@ public class StatusBarWindowView extends FrameLayout {
                     Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 1, UserHandle.USER_CURRENT) == 1;
             mDoubleTapToSleepLockScreen = Settings.System.getIntForUser(resolver,
                     Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, 0, UserHandle.USER_CURRENT) == 1;
+            mDoubleTapToSleepAnywhere = Settings.System.getIntForUser(resolver,
+                    Settings.System.DOUBLE_TAP_SLEEP_ANYWHERE, 0, UserHandle.USER_CURRENT) == 1;
  
         }
     }
