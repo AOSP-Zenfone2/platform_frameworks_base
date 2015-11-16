@@ -62,7 +62,10 @@ public class Constants {
             // clear button location
             public static final int RECENTS_CLEAR_ALL_TOP_RIGHT    = 0;
             public static final int RECENTS_CLEAR_ALL_TOP_LEFT     = 1;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c720090... [Base]: recents panel clear all button tweaks
         }
     }
 
