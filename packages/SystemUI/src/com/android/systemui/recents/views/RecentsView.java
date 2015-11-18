@@ -49,8 +49,6 @@ import com.android.systemui.recents.model.RecentsTaskLoader;
 import com.android.systemui.recents.model.Task;
 import com.android.systemui.recents.model.TaskStack;
 
-import com.android.systemui.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -351,7 +349,8 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         mConfig.getAvailableTaskStackBounds(width, height, mConfig.systemInsets.top,
                 mConfig.systemInsets.right, searchBarSpaceBounds, taskStackBounds);
 
-        if (mClearRecents != null && showClearAllRecents) {
+
+        if (mFloatingButton != null && showClearAllRecents) {
             int clearRecentsLocation = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.RECENTS_CLEAR_ALL_LOCATION,
             Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_RIGHT, UserHandle.USER_CURRENT);
