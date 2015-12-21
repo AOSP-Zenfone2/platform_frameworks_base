@@ -3272,6 +3272,13 @@ public final class Settings {
         public static final String NAVIGATION_BAR_BUTTON_TINT_MODE = "navigation_bar_button_tint_mode";
 
         /**
+         * Enable double tap gesture anywhere on the lock screen put device to sleep
+         * @hide
+         */
+        public static final String DOUBLE_TAP_SLEEP_ANYWHERE = "double_tap_sleep_anywhere";        /**
+
+        /**
+         * Boolean value whether to link ringtone and notification volume
          * Navigation bar glow color
          * @hide
          */
