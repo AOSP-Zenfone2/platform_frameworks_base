@@ -2491,6 +2491,28 @@
         <item>-44</item>
     </integer-array>
 
+    <!-- Hardware "softkeys" present on the device, stored as a bit field.
+         This integer should equal the sum of the corresponding value for each
+         of the following keys present:
+            1 - Home
+            2 - Back
+            4 - Menu
+            8 - Assistant (search)
+           16 - App switch
+           32 - Camera
+        For example, a device with Home, Back and Menu keys would set this
+        config to 7. -->
+    <integer name="config_deviceHardwareKeys">0</integer>
+    
+     <!-- Whether doze should invert colors for notifications. If the RRO theme causes
+    the NORMAL notification background to be dark and the text to be light, this boolean
+    needs to be set to false, to prevent the doze notifications from being light -->
+    <bool name="config_invert_colors_on_doze">true</bool>
+
+    <!-- Whether doze should apply grayscale layer to doze notification screen -->
+    <bool name="config_apply_grayscale_on_doze">true</bool>
+
+
     <!-- Enables the feature that can show/hide the operator name in statusbar.
         When true, the user can select to show/hide operator name through a
         checkbox in Settings. When false, there is no option to show operator
