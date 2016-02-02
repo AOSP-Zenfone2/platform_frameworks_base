@@ -122,6 +122,11 @@ import com.android.systemui.doze.DozeHost;
 import com.android.systemui.doze.DozeLog;
 import com.android.systemui.keyguard.KeyguardViewMediator;
 import com.android.systemui.qs.QSPanel;
+<<<<<<< HEAD
+=======
+import com.android.systemui.qs.QSTile;
+import com.android.systemui.recents.RecentsActivity;
+>>>>>>> 7fd9a54... SystemUI: Allow clearing recents tasks within recents button
 import com.android.systemui.recents.ScreenPinningRequest;
 import com.android.systemui.statusbar.ActivatableNotificationView;
 import com.android.systemui.statusbar.BackDropView;
@@ -2846,7 +2851,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     public void setImeWindowStatus(IBinder token, int vis, int backDisposition,
             boolean showImeSwitcher) {
         boolean imeShown = (vis & InputMethodService.IME_VISIBLE) != 0;
-        int flags = mNavigationIconHints;
+        int flags = mNavigationBarView != null ?
+                mNavigationBarView.getNavigationIconHints() : mNavigationIconHints;
         if ((backDisposition == InputMethodService.BACK_DISPOSITION_WILL_DISMISS) || imeShown) {
             flags |= NAVIGATION_HINT_BACK_ALT;
         } else {
@@ -4247,7 +4253,35 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     // When in accessibility mode a long press that is recents (not back)
                     // should stop lock task.
                     activityManager.stopLockTaskModeOnCurrent();
+<<<<<<< HEAD
                     mNavigationBarView.setOverrideMenuKeys(false);
+=======
+                    // When exiting refresh disabled flags.
+                    mNavigationBarView.setDisabledFlags(mDisabled1, true);
+                }
+            }
+            if (sendBackLongPress) {
+                KeyButtonView keyButtonView = (KeyButtonView) v;
+                keyButtonView.sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.FLAG_LONG_PRESS);
+                keyButtonView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_LONG_CLICKED);
+            }
+
+            if (hijackRecentsLongPress) {
+                if (isRecentAppsVisible() && hasRecentApps()) {
+                    clearRecentApps();
+                } else {
+                    // If there is a user-selected, registered handler for the
+                    // recents long press, start the Intent.  Otherwise,
+                    // perform the default action, which is last app switching.
+
+                    // Copy it so the value doesn't change between now and when the activity is started.
+                    ComponentName customRecentsLongPressHandler = mCustomRecentsLongPressHandler;
+                    if (customRecentsLongPressHandler != null) {
+                        startCustomRecentsLongPressActivity(customRecentsLongPressHandler);
+                    } else {
+                        ActionUtils.switchToLastApp(mContext, mCurrentUserId);
+                    }
+>>>>>>> 7fd9a54... SystemUI: Allow clearing recents tasks within recents button
                 }
                 mLastLockToAppLongPress = time;
             }
