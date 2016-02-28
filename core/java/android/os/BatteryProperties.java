@@ -24,7 +24,6 @@ public class BatteryProperties implements Parcelable {
     public boolean chargerWirelessOnline;
     public int maxChargingCurrent;
     public int batteryStatus;
-    public int batteryChargeRate;
     public int batteryHealth;
     public boolean batteryPresent;
     public int batteryLevel;
@@ -41,7 +40,6 @@ public class BatteryProperties implements Parcelable {
         chargerWirelessOnline = other.chargerWirelessOnline;
         maxChargingCurrent = other.maxChargingCurrent;
         batteryStatus = other.batteryStatus;
-        batteryChargeRate = other.batteryChargeRate;
         batteryHealth = other.batteryHealth;
         batteryPresent = other.batteryPresent;
         batteryLevel = other.batteryLevel;
@@ -61,7 +59,6 @@ public class BatteryProperties implements Parcelable {
         chargerWirelessOnline = p.readInt() == 1 ? true : false;
         maxChargingCurrent = p.readInt();
         batteryStatus = p.readInt();
-        batteryChargeRate = p.readInt();
         batteryHealth = p.readInt();
         batteryPresent = p.readInt() == 1 ? true : false;
         batteryLevel = p.readInt();
@@ -76,7 +73,6 @@ public class BatteryProperties implements Parcelable {
         p.writeInt(chargerWirelessOnline ? 1 : 0);
         p.writeInt(maxChargingCurrent);
         p.writeInt(batteryStatus);
-        p.writeInt(batteryChargeRate);
         p.writeInt(batteryHealth);
         p.writeInt(batteryPresent ? 1 : 0);
         p.writeInt(batteryLevel);

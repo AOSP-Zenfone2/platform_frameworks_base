@@ -119,7 +119,6 @@ public final class BatteryService extends SystemService {
     private final BatteryProperties mLastBatteryProps = new BatteryProperties();
     private boolean mBatteryLevelCritical;
     private int mLastBatteryStatus;
-    private int mLastBatteryChargeRate;
     private int mLastBatteryHealth;
     private boolean mLastBatteryPresent;
     private int mLastBatteryLevel;
@@ -332,7 +331,6 @@ public final class BatteryService extends SystemService {
                     + ", chargerWirelessOnline=" + mBatteryProps.chargerWirelessOnline
                     + ", maxChargingCurrent" + mBatteryProps.maxChargingCurrent
                     + ", batteryStatus=" + mBatteryProps.batteryStatus
-                    + ", batteryChargeRate=" + mBatteryProps.batteryChargeRate
                     + ", batteryHealth=" + mBatteryProps.batteryHealth
                     + ", batteryPresent=" + mBatteryProps.batteryPresent
                     + ", batteryLevel=" + mBatteryProps.batteryLevel
@@ -356,8 +354,6 @@ public final class BatteryService extends SystemService {
         shutdownIfOverTempLocked();
 
         if (force || (mBatteryProps.batteryStatus != mLastBatteryStatus ||
-        final boolean batteryChanged = mBatteryProps.batteryStatus != mLastBatteryStatus ||
-                mBatteryProps.batteryChargeRate != mLastBatteryChargeRate ||
                 mBatteryProps.batteryHealth != mLastBatteryHealth ||
                 mBatteryProps.batteryPresent != mLastBatteryPresent ||
                 mBatteryProps.batteryLevel != mLastBatteryLevel ||
@@ -388,7 +384,6 @@ public final class BatteryService extends SystemService {
                 }
             }
             if (mBatteryProps.batteryStatus != mLastBatteryStatus ||
-                    mBatteryProps.batteryChargeRate != mLastBatteryChargeRate ||
                     mBatteryProps.batteryHealth != mLastBatteryHealth ||
                     mBatteryProps.batteryPresent != mLastBatteryPresent ||
                     mPlugType != mLastPlugType) {
@@ -486,7 +481,6 @@ public final class BatteryService extends SystemService {
             }
 
             mLastBatteryStatus = mBatteryProps.batteryStatus;
-            mLastBatteryChargeRate = mBatteryProps.batteryChargeRate;
             mLastBatteryHealth = mBatteryProps.batteryHealth;
             mLastBatteryPresent = mBatteryProps.batteryPresent;
             mLastBatteryLevel = mBatteryProps.batteryLevel;
@@ -508,7 +502,6 @@ public final class BatteryService extends SystemService {
         int icon = getIconLocked(mBatteryProps.batteryLevel);
 
         intent.putExtra(BatteryManager.EXTRA_STATUS, mBatteryProps.batteryStatus);
-        intent.putExtra(BatteryManager.EXTRA_CHARGE_RATE, mBatteryProps.batteryChargeRate);
         intent.putExtra(BatteryManager.EXTRA_HEALTH, mBatteryProps.batteryHealth);
         intent.putExtra(BatteryManager.EXTRA_PRESENT, mBatteryProps.batteryPresent);
         intent.putExtra(BatteryManager.EXTRA_LEVEL, mBatteryProps.batteryLevel);
@@ -524,10 +517,6 @@ public final class BatteryService extends SystemService {
         if (DEBUG) {
             Slog.d(TAG, "Sending ACTION_BATTERY_CHANGED.  level:" + mBatteryProps.batteryLevel +
                     ", scale:" + BATTERY_SCALE + ", status:" + mBatteryProps.batteryStatus +
-            String msg = "Sending ACTION_BATTERY_CHANGED. level:" + mBatteryProps.batteryLevel +
-                    ", scale:" + BATTERY_SCALE +
-                    ", status:" + mBatteryProps.batteryStatus +
-                    ", charge_rate:" + mBatteryProps.batteryChargeRate +
                     ", health:" + mBatteryProps.batteryHealth +
                     ", present:" + mBatteryProps.batteryPresent +
                     ", voltage: " + mBatteryProps.batteryVoltage +
@@ -644,7 +633,6 @@ public final class BatteryService extends SystemService {
                 pw.println("  Wireless powered: " + mBatteryProps.chargerWirelessOnline);
                 pw.println("  Max charging current: " + mBatteryProps.maxChargingCurrent);
                 pw.println("  status: " + mBatteryProps.batteryStatus);
-                pw.println("  charge type: " + mBatteryProps.batteryChargeRate);
                 pw.println("  health: " + mBatteryProps.batteryHealth);
                 pw.println("  present: " + mBatteryProps.batteryPresent);
                 pw.println("  level: " + mBatteryProps.batteryLevel);
