@@ -143,7 +143,6 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
         mTime = (TextView) findViewById(R.id.time_view);
         mAmPm = (TextView) findViewById(R.id.am_pm_view);
         mMultiUserSwitch = (MultiUserSwitch) findViewById(R.id.multi_user_switch);
-        mMultiUserSwitch.setOnLongClickListener(this);
         mMultiUserAvatar = (ImageView) findViewById(R.id.multi_user_avatar);
         mDateCollapsed = (TextView) findViewById(R.id.date_collapsed);
         mDateExpanded = (TextView) findViewById(R.id.date_expanded);
@@ -532,25 +531,6 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
                 mActivityStarter.startPendingIntentDismissingKeyguard(showIntent);
             }
         }
-
-        mQSPanel.vibrateTile(20);
-    }
-
-    @Override
-    public boolean onLongClick(View v) {
-        if (v == mSystemIconsSuperContainer) {
-            startBatteryLongClickActivity();
-        } else if (v == mClock) {
-            startClockLongClickActivity();
-        } else if (v == mDateGroup) {
-            startDateLongClickActivity();
-        } else if (v == mWeatherContainer) {
-            startForecastLongClickActivity();
-        } else if (v == mMultiUserSwitch) {
-            startUserLongClickActivity();
-        }
-        return false;
-
     }
 
     private void startSettingsActivity() {
@@ -561,59 +541,6 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
     private void startBatteryActivity() {
         mActivityStarter.startActivity(new Intent(Intent.ACTION_POWER_USAGE_SUMMARY),
                 true /* dismissShade */);
-    }
-
-
-    private void startBatteryLongClickActivity() {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setClassName("com.android.settings",
-            "com.android.settings.Settings$BatterySaverSettingsActivity");
-        mActivityStarter.startActivity(intent, true /* dismissShade */);
-    }
-
-    private void startUserLongClickActivity() {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setClassName("com.android.settings",
-            "com.android.settings.Settings$UserSettingsActivity");
-        mActivityStarter.startActivity(intent, true /* dismissShade */);
-    }
-
-    private void startClockActivity() {
-        mActivityStarter.startActivity(new Intent(AlarmClock.ACTION_SHOW_ALARMS),
-                true /* dismissShade */);
-    }
-
-    private void startClockLongClickActivity() {
-        mActivityStarter.startActivity(new Intent(AlarmClock.ACTION_SET_ALARM),
-                true /* dismissShade */);
-    }
-
-    private void startDateActivity() {
-        Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
-        builder.appendPath("time");
-        ContentUris.appendId(builder, System.currentTimeMillis());
-        Intent intent = new Intent(Intent.ACTION_VIEW).setData(builder.build());
-        mActivityStarter.startActivity(intent, true /* dismissShade */);
-    }
-
-    private void startDateLongClickActivity() {
-        Intent intent = new Intent(Intent.ACTION_INSERT);
-            intent.setData(Events.CONTENT_URI);
-        mActivityStarter.startActivity(intent, true /* dismissShade */);
-    }
-
-    private void startForecastActivity() {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setComponent(WeatherControllerImpl.COMPONENT_WEATHER_FORECAST);
-        mActivityStarter.startActivity(intent, true /* dismissShade */);
-    }
-
-    private void startForecastLongClickActivity() {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setClassName("com.cyanogenmod.lockclock",
-            "com.cyanogenmod.lockclock.preference.Preferences");
-        mActivityStarter.startActivity(intent, true /* dismissShade */);
     }
 
     public void setQSPanel(QSPanel qsp) {
