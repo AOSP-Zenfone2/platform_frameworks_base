@@ -142,7 +142,7 @@
     <bool name="config_showRsrpSignalLevelforLTE">false</bool>
 
     <!-- Whether or not we show carrier label in notification panel. -->
-    <bool name="config_showCarrierLabel">true</bool>
+    <bool name="config_showCarrierLabel">false</bool>
 
     <!-- Whether or not we also show wifi activity in status bar. -->
     <bool name="config_showWifiActivity">false</bool>
@@ -320,7 +320,7 @@
     <bool name="enable_volume_ui">true</bool>
 
     <!-- Enable operator name on status bar -->
-    <bool name="enable_operator_name">false</bool>
+    <bool name="enable_operator_name">rue</bool>
 
     <!-- Duration of the full carrier network change icon animation. -->
     <integer name="carrier_network_change_anim_time">3000</integer>
@@ -335,7 +335,7 @@
     <bool name="config_showBatteryPercentage">false</bool>
 
     <!-- Show 4G for HSPAP -->
-    <bool name="config_show4gForHspap">false</bool>
+    <bool name="config_show4gForHspap">true</bool>
 
     <!-- Maximum length of operator name to be shown in status bar  -->
     <integer name="config_operatorNameMaxLength">20</integer>
@@ -347,7 +347,7 @@
     <bool name="show_roaming_and_network_icons">false</bool>
 
     <!-- Show 4GLTE for LTE -->
-    <bool name="show_4glte_icon_for_lte">false</bool>
+    <bool name="show_4glte_icon_for_lte">true</bool>
 
     <!-- Show forbidden and greyed data icon when data is disabled -->
     <bool name="config_data_signal_control">false</bool>
