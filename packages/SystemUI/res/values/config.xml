@@ -142,7 +142,7 @@
     <bool name="config_showRsrpSignalLevelforLTE">false</bool>
 
     <!-- Whether or not we show carrier label in notification panel. -->
-    <bool name="config_showCarrierLabel">false</bool>
+    <bool name="config_showCarrierLabel">true</bool>
 
     <!-- Whether or not we also show wifi activity in status bar. -->
     <bool name="config_showWifiActivity">false</bool>

@@ -237,10 +237,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     public static final int FADE_KEYGUARD_DURATION = 150;
     public static final int FADE_KEYGUARD_DURATION_PULSING = 96;
 
-    /** Allow some time inbetween the long press for back and recents. */
-
-    private static final int LOCK_TO_APP_GESTURE_TOLERENCE = 200;
-
     /**
      * A key that is used to retrieve the value of the checkbox
      * in Settings application that allows a user to add or remove
@@ -338,7 +334,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     // carrier label
     private TextView mCarrierLabel;
-    private boolean mShowCarrierInPanel = false;
+    private boolean mShowCarrierInPanel = true;
     boolean mExpandedVisible;
 
     private int mNavigationBarWindowState = WINDOW_STATE_SHOWING;
