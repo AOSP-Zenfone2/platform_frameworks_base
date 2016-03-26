@@ -260,16 +260,16 @@
     <string name="velocity_tracker_impl" translatable="false">platform</string>
 
     <!-- Set to true to enable the user switcher on the keyguard. -->
-    <bool name="config_keyguardUserSwitcher">false</bool>
+    <bool name="config_keyguardUserSwitcher">true</bool>
 
     <!-- Doze: does this device support STATE_DOZE and STATE_DOZE_SUSPEND?  -->
-    <bool name="doze_display_state_supported">false</bool>
+    <bool name="doze_display_state_supported">true</bool>
 
     <!-- Doze: should the significant motion sensor be used as a pulse signal? -->
-    <bool name="doze_pulse_on_significant_motion">false</bool>
+    <bool name="doze_pulse_on_significant_motion">true</bool>
 
     <!-- Doze: should the pickup sensor be used as a pulse signal? -->
-    <bool name="doze_pulse_on_pick_up">false</bool>
+    <bool name="doze_pulse_on_pick_up">true</bool>
 
     <!-- Doze: check proximity sensor before pulsing? -->
     <bool name="doze_proximity_check_before_pulse">true</bool>
@@ -278,7 +278,7 @@
     <bool name="doze_pulse_on_notifications">true</bool>
 
     <!-- Doze: when to pulse after a buzzworthy notification arrives -->
-    <string name="doze_pulse_schedule" translatable="false">10s,30s,60s</string>
+    <string name="doze_pulse_schedule" translatable="true">10s,30s,60s</string>
 
     <!-- Doze: maximum number of times the notification pulse schedule can be reset -->
     <integer name="doze_pulse_schedule_resets">2</integer>
@@ -287,7 +287,7 @@
     <integer name="doze_pickup_vibration_threshold">2000</integer>
 
     <!-- Doze: can we assume the pickup sensor includes a proximity check? -->
-    <bool name="doze_pickup_performs_proximity_check">false</bool>
+    <bool name="doze_pickup_performs_proximity_check">true</bool>
 
     <!-- Doze: pulse parameter - how long does it take to fade in? -->
     <integer name="doze_pulse_duration_in">900</integer>
@@ -320,7 +320,7 @@
     <bool name="enable_volume_ui">true</bool>
 
     <!-- Enable operator name on status bar -->
-    <bool name="enable_operator_name">rue</bool>
+    <bool name="enable_operator_name">false</bool>
 
     <!-- Duration of the full carrier network change icon animation. -->
     <integer name="carrier_network_change_anim_time">3000</integer>
@@ -335,7 +335,7 @@
     <bool name="config_showBatteryPercentage">false</bool>
 
     <!-- Show 4G for HSPAP -->
-    <bool name="config_show4gForHspap">true</bool>
+    <bool name="config_show4gForHspap">false</bool>
 
     <!-- Maximum length of operator name to be shown in status bar  -->
     <integer name="config_operatorNameMaxLength">20</integer>
