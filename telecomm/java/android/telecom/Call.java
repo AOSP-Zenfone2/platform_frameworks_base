@@ -207,6 +207,7 @@ public final class Call {
         public static final int CAPABILITY_CAN_PAUSE_VIDEO = 0x00100000;
 
         /**
+<<<<<<< HEAD
          * Call has voice privacy capability.
          * @hide
          */
@@ -232,6 +233,15 @@ public final class Call {
 
         //******************************************************************************************
         // Next CAPABILITY value: 0x04000000
+=======
+         * Call sends responses through connection.
+         * @hide
+         */
+        public static final int CAPABILITY_CAN_SEND_RESPONSE_VIA_CONNECTION = 0x00400000;
+
+        //******************************************************************************************
+        // Next CAPABILITY value: 0x00800000
+>>>>>>> 45b2def045b0629d2b70c90f8972f54ab3f8f084
         //******************************************************************************************
 
         /**
