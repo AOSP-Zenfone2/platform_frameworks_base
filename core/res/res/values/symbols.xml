@@ -823,6 +823,7 @@
   <java-symbol type="string" name="reboot_to_reset_title" />
   <java-symbol type="string" name="reboot_to_reset_message" />
   <java-symbol type="string" name="reboot_confirm" />
+  <java-symbol type="string" name="reboot_progress" />
   <java-symbol type="string" name="reboot_safemode_confirm" />
   <java-symbol type="string" name="reboot_safemode_title" />
   <java-symbol type="string" name="reboot_title" />
@@ -2460,4 +2461,7 @@
   <java-symbol type="string" name="operator_ping_url" />
   <java-symbol type="bool" name="config_zero_balance_operator"/>
   <java-symbol type="bool" name="config_passpoint_setting_on" />
+
+  <java-symbol type="bool" name="config_useSystemClockforSensors" />
+
 </resources>
