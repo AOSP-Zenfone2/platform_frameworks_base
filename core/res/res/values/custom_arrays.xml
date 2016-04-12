@@ -15,22 +15,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Defines the shutdown options shown in the reboot dialog. -->
-    <array name="shutdown_reboot_options" >
-        <item>@string/shutdown_reboot_option_reboot</item>
-        <item>@string/shutdown_reboot_option_quick_reboot</item>
-        <item>@string/shutdown_reboot_option_recovery</item>
-        <item>@string/shutdown_reboot_option_bootloader</item>
-    </array>
-
-    <!-- Do not translate. Defines the shutdown actions passed to the kernel.
-         The first item should be empty for regular reboot. -->
-    <string-array name="shutdown_reboot_actions" translatable="false">
-        <item></item>
-        <item>quick_reboot</item>
-        <item>recovery</item>
-        <item>bootloader</item>
-    </string-array>
     
     <!-- Do not translate. Defines the mapping of notification package names
          from the actual triggering package to the user selectable package.
