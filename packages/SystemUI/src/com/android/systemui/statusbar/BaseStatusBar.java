@@ -42,7 +42,6 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.content.res.ThemeConfig;
 import android.content.ServiceConnection;
 import android.database.ContentObserver;
 import android.graphics.PorterDuff;
