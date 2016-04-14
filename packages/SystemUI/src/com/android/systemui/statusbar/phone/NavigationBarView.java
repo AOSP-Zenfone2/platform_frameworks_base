@@ -654,7 +654,6 @@ public class NavigationBarView extends LinearLayout {
         }
 
 
-
         ((ImageView)getRecentsButton()).setImageDrawable(mVertical ? mRecentLandIcon : mRecentIcon);
 
         final boolean showImeButton = ((hints & StatusBarManager.NAVIGATION_HINT_IME_SHOWN) != 0
@@ -668,14 +667,6 @@ public class NavigationBarView extends LinearLayout {
         mIsImeArrowVisible = (backAlt && mImeArrowVisibility);
         getLeftImeArrowButton().setVisibility(mIsImeArrowVisible ? View.VISIBLE : View.GONE);
         getRightImeArrowButton().setVisibility(mIsImeArrowVisible ? View.VISIBLE : View.GONE);
-
-
-        final boolean showImeButton = ((hints & StatusBarManager.NAVIGATION_HINT_IME_SHOWN) != 0);
-        if (getImeSwitchButton() != null)
-            getImeSwitchButton().setVisibility(showImeButton ? View.VISIBLE : View.GONE);
-
-        // Update menu button in case the IME state has changed.
-        setMenuVisibility(mShowMenu, true);
 
 
         setDisabledFlags(mDisabledFlags, true);
