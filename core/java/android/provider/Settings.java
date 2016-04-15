@@ -3057,380 +3057,6 @@ public final class Settings {
         /** @hide */
         public static final Validator WINDOW_ORIENTATION_LISTENER_LOG_VALIDATOR = sBooleanValidator;
 
-
-        /**
-         * @deprecated Use {@link android.provider.Settings.Global#POWER_SOUNDS_ENABLED}
-         * instead
-         * @hide
-         */
-        @Deprecated
-        public static final String POWER_SOUNDS_ENABLED = Global.POWER_SOUNDS_ENABLED;
-
-        /**
-         * @deprecated Use {@link android.provider.Settings.Global#DOCK_SOUNDS_ENABLED}
-         * instead
-         * @hide
-         */
-        @Deprecated
-        public static final String DOCK_SOUNDS_ENABLED = Global.DOCK_SOUNDS_ENABLED;
-
-        /**
-         * Whether to play sounds when the keyguard is shown and dismissed.
-         * @hide
-         */
-        public static final String LOCKSCREEN_SOUNDS_ENABLED = "lockscreen_sounds_enabled";
-
-        /** @hide */
-        public static final Validator LOCKSCREEN_SOUNDS_ENABLED_VALIDATOR = sBooleanValidator;
-
-        /**
-         * Whether the lockscreen should be completely disabled.
-         * @hide
-         */
-        public static final String LOCKSCREEN_DISABLED = "lockscreen.disabled";
-
-        /** @hide */
-        public static final Validator LOCKSCREEN_DISABLED_VALIDATOR = sBooleanValidator;
-
-        /**
-         * @deprecated Use {@link android.provider.Settings.Global#LOW_BATTERY_SOUND}
-         * instead
-         * @hide
-         */
-        @Deprecated
-        public static final String LOW_BATTERY_SOUND = Global.LOW_BATTERY_SOUND;
-
-        /**
-         * @deprecated Use {@link android.provider.Settings.Global#DESK_DOCK_SOUND}
-         * instead
-         * @hide
-         */
-        @Deprecated
-        public static final String DESK_DOCK_SOUND = Global.DESK_DOCK_SOUND;
-
-        /**
-         * @deprecated Use {@link android.provider.Settings.Global#DESK_UNDOCK_SOUND}
-         * instead
-         * @hide
-         */
-        @Deprecated
-        public static final String DESK_UNDOCK_SOUND = Global.DESK_UNDOCK_SOUND;
-
-        /**
-         * @deprecated Use {@link android.provider.Settings.Global#CAR_DOCK_SOUND}
-         * instead
-         * @hide
-         */
-        @Deprecated
-        public static final String CAR_DOCK_SOUND = Global.CAR_DOCK_SOUND;
-
-        /**
-         * @deprecated Use {@link android.provider.Settings.Global#CAR_UNDOCK_SOUND}
-         * instead
-         * @hide
-         */
-        @Deprecated
-        public static final String CAR_UNDOCK_SOUND = Global.CAR_UNDOCK_SOUND;
-
-        /**
-         * @deprecated Use {@link android.provider.Settings.Global#LOCK_SOUND}
-         * instead
-         * @hide
-         */
-        @Deprecated
-        public static final String LOCK_SOUND = Global.LOCK_SOUND;
-
-        /**
-         * @deprecated Use {@link android.provider.Settings.Global#UNLOCK_SOUND}
-         * instead
-         * @hide
-         */
-        @Deprecated
-        public static final String UNLOCK_SOUND = Global.UNLOCK_SOUND;
-
-        /**
-         * Receive incoming SIP calls?
-         * 0 = no
-         * 1 = yes
-         * @hide
-         */
-        public static final String SIP_RECEIVE_CALLS = "sip_receive_calls";
-
-        /** @hide */
-        public static final Validator SIP_RECEIVE_CALLS_VALIDATOR = sBooleanValidator;
-
-        /**
-         * Call Preference String.
-         * "SIP_ALWAYS" : Always use SIP with network access
-         * "SIP_ADDRESS_ONLY" : Only if destination is a SIP address
-         * @hide
-         */
-        public static final String SIP_CALL_OPTIONS = "sip_call_options";
-
-        /** @hide */
-        public static final Validator SIP_CALL_OPTIONS_VALIDATOR = new DiscreteValueValidator(
-                new String[] {"SIP_ALWAYS", "SIP_ADDRESS_ONLY"});
-
-        /**
-         * One of the sip call options: Always use SIP with network access.
-         * @hide
-         */
-        public static final String SIP_ALWAYS = "SIP_ALWAYS";
-
-        /** @hide */
-        public static final Validator SIP_ALWAYS_VALIDATOR = sBooleanValidator;
-
-        /**
-         * One of the sip call options: Only if destination is a SIP address.
-         * @hide
-         */
-        public static final String SIP_ADDRESS_ONLY = "SIP_ADDRESS_ONLY";
-
-        /** @hide */
-        public static final Validator SIP_ADDRESS_ONLY_VALIDATOR = sBooleanValidator;
-
-        /**
-         * @deprecated Use SIP_ALWAYS or SIP_ADDRESS_ONLY instead.  Formerly used to indicate that
-         * the user should be prompted each time a call is made whether it should be placed using
-         * SIP.  The {@link com.android.providers.settings.DatabaseHelper} replaces this with
-         * SIP_ADDRESS_ONLY.
-         * @hide
-         */
-        @Deprecated
-        public static final String SIP_ASK_ME_EACH_TIME = "SIP_ASK_ME_EACH_TIME";
-
-        /** @hide */
-        public static final Validator SIP_ASK_ME_EACH_TIME_VALIDATOR = sBooleanValidator;
-
-        /**
-         * Pointer speed setting.
-         * This is an integer value in a range between -7 and +7, so there are 15 possible values.
-         *   -7 = slowest
-         *    0 = default speed
-         *   +7 = fastest   
-         * @hide
-         */
-        public static final String POINTER_SPEED = "pointer_speed";
-
-        /** @hide */
-        public static final Validator POINTER_SPEED_VALIDATOR =
-                new InclusiveFloatRangeValidator(-7, 7);
-
-        /**
-         * Whether lock-to-app will be triggered by long-press on recents.
-         * @hide
-         */
-        public static final String LOCK_TO_APP_ENABLED = "lock_to_app_enabled";
-
-        /** @hide */
-        public static final Validator LOCK_TO_APP_ENABLED_VALIDATOR = sBooleanValidator;
-
-        /**
-         * I am the lolrus.
-         * <p>
-         * Nonzero values indicate that the user has a bukkit.
-         * Backward-compatible with <code>PrefGetPreference(prefAllowEasterEggs)</code>.
-         * @hide
-         */
-        public static final String EGG_MODE = "egg_mode";
-
-        /**
-          * Volume keys control cursor in text fields (default is 0)
-          * 0 - Disabled
-          * 1 - Volume up/down moves cursor left/right
-          * 2 - Volume up/down moves cursor right/left
-          * @hide
-          */
-         public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
-
-        /**
-         * Override and forcefully disable the fullscreen keyboard
-         * @hide
-         */
-        public static final String DISABLE_FULLSCREEN_KEYBOARD = "disable_fullscreen_keyboard";
-
-        /**
-         * Whether to show the IME switcher in the status bar
-         * @hide
-         */
-        public static final String STATUS_BAR_IME_SWITCHER = "status_bar_ime_switcher";
-
-        /**
-         * Automatic keyboard rotation timeout.  0 to disable completely.
-         * @hide
-         */
-        public static final String KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
-
-        /**
-         * Whether to show the weather info on the lock screen
-         * @hide
-         */
-        public static final String LOCK_SCREEN_SHOW_WEATHER = "lock_screen_show_weather";
-
-        /**
-         * Whether to show the weather location on the lock screen
-         * @hide
-         */
-        public static final String LOCK_SCREEN_SHOW_WEATHER_LOCATION = "lock_screen_show_weather_location";
-
-        /**
-         * Whether to show the weather update timestamp on the lock screen
-         * @hide
-         */
-        public static final String LOCK_SCREEN_SHOW_WEATHER_TIMESTAMP = "lock_screen_show_weather_timestamp";
-
-        /**
-         * Weather condition icon on the lock screen
-         * 0: monochrome
-         * 1: colored
-         * 2: vclouds
-         * default: 0
-         * @hide
-         */
-        public static final String LOCK_SCREEN_WEATHER_CONDITION_ICON = "lock_screen_weather_condition_icon";
-
-        /**
-         * Whether to colorize all weather condition icons on the lock screen
-         * @hide
-         */
-        public static final String LOCK_SCREEN_WEATHER_COLORIZE_ALL_ICONS = "lock_screen_weather_colorize_all_icons";
-
-        /**
-         * Color of the weather text on the lock screen
-         * @hide
-         */
-        public static final String LOCK_SCREEN_WEATHER_TEXT_COLOR = "lock_screen_weather_text_color";
-
-        /**
-         * Color of the weather condition icons on the lock screen
-         * @hide
-         */
-        public static final String LOCK_SCREEN_WEATHER_ICON_COLOR = "lock_screen_weather_icon_color";
-
-        /**
-         * Forces formal text input.  1 to replace emoticon key with enter key.
-         * @hide
-         */
-        public static final String FORMAL_TEXT_INPUT = "formal_text_input";
-
-        /** @hide */
-        public static final Validator EGG_MODE_VALIDATOR = new Validator() {
-            @Override
-            public boolean validate(String value) {
-                try {
-                    return Long.parseLong(value) >= 0;
-                } catch (NumberFormatException e) {
-                    return false;
-                }
-            }
-        };
-
-        /**
-         *  Enable statusbar double tap gesture on to put device to sleep
-         * @hide
-         */
-        public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
-
-        /**
-         *  Enable navigation bar double tap gesture on to put device to sleep
-         * @hide
-         */
-        public static final String DOUBLE_TAP_SLEEP_NAVBAR = "double_tap_sleep_navbar";
-
-        /**
-         * Enable double tap gesture anywhere on the lock screen put device to sleep
-         * @hide
-         */
-        public static final String DOUBLE_TAP_SLEEP_LOCK_SCREEN = "double_tap_sleep_lock_screen";
-
-        /**
-         * IMPORTANT: If you add a new public settings you also have to add it to
-         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
-         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
-         * the setting value. See an example above.
-         */
-
-         /**
-         * Whether wifi settings will connect to access point automatically
-         * 0 = automatically
-         * 1 = manually
-         * @hide
-         */
-        public static final String WIFI_AUTO_CONNECT_TYPE = "wifi_auto_connect_type";
-
-        /**
-         * Action to perform when the home key is long-pressed.
-         * (Default can be configured via config_longPressOnHomeBehavior)
-         * 0 - Nothing
-         * 1 - Menu
-         * 2 - App-switch
-         * 3 - Search
-         * 4 - Voice search
-         * 5 - In-app search
-         * 6 - Launch Camera
-         * 7 - Last app
-         * @hide
-         */
-        public static final String KEY_HOME_LONG_PRESS_ACTION = "key_home_long_press_action";
-
-        /**
-         * Action to perform when the home key is double-tapped.
-         * (Default can be configured via config_doubleTapOnHomeBehavior)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_HOME_DOUBLE_TAP_ACTION = "key_home_double_tap_action";
-
-        /**
-         * Action to perform when the menu key is pressed. (Default is 1)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_MENU_ACTION = "key_menu_action";
-
-        /**
-         * Action to perform when the menu key is long-pressed.
-         * (Default is 0 on devices with a search key, 3 on devices without)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_MENU_LONG_PRESS_ACTION = "key_menu_long_press_action";
-
-        /**
-         * Action to perform when the assistant (search) key is pressed. (Default is 3)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_ASSIST_ACTION = "key_assist_action";
-
-        /**
-         * Action to perform when the assistant (search) key is long-pressed. (Default is 4)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_ASSIST_LONG_PRESS_ACTION = "key_assist_long_press_action";
-
-        /**
-         * Action to perform when the app switch key is pressed. (Default is 2)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_APP_SWITCH_ACTION = "key_app_switch_action";
-
-        /**
-         * Navigation controls to Use
-         * @hide
-         */
-        public static final String NAV_BUTTONS = "nav_buttons";
-
-        /**
-         * Action to perform when the app switch key is long-pressed. (Default is 0)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_APP_SWITCH_LONG_PRESS_ACTION = "key_app_switch_long_press_action";
-
-
         /**
          * @deprecated Use {@link android.provider.Settings.Global#POWER_SOUNDS_ENABLED}
          * instead
@@ -3626,7 +3252,81 @@ public final class Settings {
          * the setting value. See an example above.
          */
 
-         /**
+
+        /**
+         * Navigation bar button color
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_BUTTON_TINT = "navigation_bar_button_tint";
+
+        /**
+         * Option To Colorize Navigation bar buttons in different modes
+         * 0 = all, 1 = system icons, 2 = system icons + custom user icons
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_BUTTON_TINT_MODE = "navigation_bar_button_tint_mode";
+
+        /**
+         * Navigation bar glow color
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_GLOW_TINT = "navigation_bar_glow_tint";
+
+        /**
+         * Wether navigation bar is enabled or not
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_SHOW = "navigation_bar_show";
+
+        /**
+         * Wether navigation bar is on landscape on the bottom or on the right
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_CAN_MOVE = "navigation_bar_can_move";
+
+        /**
+         * Navigation bar height when it is on protrait
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
+
+        /**
+         * Navigation bar height when it is on landscape at the bottom
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_HEIGHT_LANDSCAPE = "navigation_bar_height_landscape";
+
+        /**
+         * Navigation bar height when it is on landscape at the right
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_WIDTH = "navigation_bar_width";
+
+        /**
+         * Custom navigation bar intent and action configuration
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_CONFIG = "navigation_bar_config";
+
+        /**
+         * Wether the navbar menu button is on the left/right/both
+         * @hide
+         */
+        public static final String MENU_LOCATION = "menu_location";
+
+        /**
+         * Wether the navbar menu button should show or not
+         * @hide
+         */
+        public static final String MENU_VISIBILITY = "menu_visibility";
+
+        /**
+         * Whether to show the IME arrows in the status bar
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_IME_ARROWS = "navigation_bar_ime_arrows";
+
+        /**
          * Whether wifi settings will connect to access point automatically
          * 0 = automatically
          * 1 = manually
@@ -8989,3 +8689,4 @@ public final class Settings {
         return packages[0];
     }
 }
+

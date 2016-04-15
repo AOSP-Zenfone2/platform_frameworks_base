@@ -23,11 +23,8 @@ import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.app.ActivityManagerNative;
 import android.app.StatusBarManager;
-<<<<<<< HEAD
-=======
 import android.content.ContentResolver;
 import android.content.BroadcastReceiver;
->>>>>>> af6a02a... SystemUI : NavigationBar Customization
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -202,8 +199,6 @@ public class NavigationBarView extends LinearLayout {
         getIcons(res);
 
         mBarTransitions = new NavigationBarTransitions(this);
-<<<<<<< HEAD
-=======
 
         mNavBarReceiver = new NavBarReceiver();
         getContext().registerReceiver(mNavBarReceiver, new IntentFilter(NAVBAR_EDIT_ACTION));
@@ -219,7 +214,6 @@ public class NavigationBarView extends LinearLayout {
                 return true;
             }
         });
->>>>>>> af6a02a... SystemUI : NavigationBar Customization
     }
 
     @Override
