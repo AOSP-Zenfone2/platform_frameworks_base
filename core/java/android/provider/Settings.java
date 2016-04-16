@@ -7925,6 +7925,8 @@ public final class Settings {
          *
          * @hide
          */
+
+ 
         public static final String[] SETTINGS_TO_BACKUP = {
             BUGREPORT_IN_POWER_MENU,
             STAY_ON_WHILE_PLUGGED_IN,
