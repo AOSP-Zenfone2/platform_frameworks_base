@@ -34,7 +34,6 @@ import android.os.IPowerManager;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
-import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -72,7 +71,6 @@ public class StatusBarWindowView extends FrameLayout {
     private int mStatusBarHeaderHeight;
 
     private boolean mDoubleTapToSleepEnabled;
-    private boolean mDoubleTapToSleepLockScreen;
 
     private GestureDetector mDoubleTapGesture;
     private Handler mHandler = new Handler();
@@ -263,15 +261,6 @@ public class StatusBarWindowView extends FrameLayout {
             mDoubleTapGesture.onTouchEvent(ev);
         }
 
-        final int h = getMeasuredHeight();
-        if (mDoubleTapToSleepLockScreen &&
-                mService.getBarState() == StatusBarState.KEYGUARD
-                && (ev.getY() < (h / 3) ||
-                ev.getY() > (h - mStatusBarHeaderHeight))) {
-            if (DEBUG) Log.w(TAG, "logging lock screen double tap gesture");
-            mDoubleTapGesture.onTouchEvent(ev);
-        }
-
         if (mNotificationPanel.isFullyExpanded()
                 && mStackScrollLayout.getVisibility() == View.VISIBLE
                 && mService.getBarState() == StatusBarState.KEYGUARD
@@ -376,8 +365,6 @@ public class StatusBarWindowView extends FrameLayout {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_GESTURE), false, this);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN), false, this);
 
             update();
         }
@@ -401,8 +388,6 @@ public class StatusBarWindowView extends FrameLayout {
             ContentResolver resolver = mContext.getContentResolver();
             mDoubleTapToSleepEnabled = Settings.System.getInt(
                     resolver, Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 1) == 1;
-            mDoubleTapToSleepLockScreen = Settings.System.getIntForUser(resolver,
-                    Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, 0, UserHandle.USER_CURRENT) == 1;
 
         }
     }
