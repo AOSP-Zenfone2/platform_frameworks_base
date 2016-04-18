@@ -357,7 +357,6 @@ public class DozeService extends DreamService {
             return;
         }
         final long pulseDuration = mDozeParameters.getPulseDuration(false /*pickup*/);
-        if (DEBUG) Log.d(mTag, "pulseDuration = " + pulseDuration);
         boolean pulseImmediately = System.currentTimeMillis() >= notificationTimeMs;
         if ((notificationTimeMs - mLastScheduleResetTime) >= pulseDuration) {
             mScheduleResetsRemaining--;
