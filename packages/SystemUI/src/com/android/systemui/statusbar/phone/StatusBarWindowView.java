@@ -375,9 +375,9 @@ public class StatusBarWindowView extends FrameLayout {
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN), false, this);
                     Settings.System.DOUBLE_TAP_SLEEP_GESTURE), false, this);
-             resolver.registerContentObserver(Settings.System.getUriFor(
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN), false, this);
 
             update();
         }
@@ -400,9 +400,10 @@ public class StatusBarWindowView extends FrameLayout {
         public void update() {
             ContentResolver resolver = mContext.getContentResolver();
             mDoubleTapToSleepEnabled = Settings.System.getInt(
+                    resolver, Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 1) == 1;
             mDoubleTapToSleepLockScreen = Settings.System.getIntForUser(resolver,
                     Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, 0, UserHandle.USER_CURRENT) == 1;
-            resolver, Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 1) == 1;
+
         }
     }
 }
