@@ -75,7 +75,7 @@ public class StatusBarWindowView extends FrameLayout {
 
     private boolean mDoubleTapToSleepEnabled;
     private boolean mDoubleTapToSleepLockScreen;
-
+    private boolean mDoubleTapToSleepAnywhere;
     private GestureDetector mDoubleTapGesture;
     private Handler mHandler = new Handler();
     private SettingsObserver mSettingsObserver;
