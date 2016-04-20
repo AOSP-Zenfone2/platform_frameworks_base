@@ -105,12 +105,6 @@ import com.android.systemui.SwipeHelper;
 import com.android.systemui.SystemUI;
 import com.android.systemui.assist.AssistManager;
 import com.android.systemui.recents.Recents;
-<<<<<<< HEAD
-=======
-import com.android.systemui.recents.RecentsActivity;
-import com.android.systemui.cm.SpamMessageProvider;
-import com.android.systemui.slimrecent.RecentController;
->>>>>>> 7fd9a54... SystemUI: Allow clearing recents tasks within recents button
 import com.android.systemui.statusbar.NotificationData.Entry;
 import com.android.systemui.statusbar.phone.NavigationBarView;
 import com.android.systemui.statusbar.phone.NotificationGroupManager;
@@ -146,16 +140,9 @@ public abstract class BaseStatusBar extends SystemUI implements
     protected static final int MSG_CANCEL_PRELOAD_RECENT_APPS = 1023;
     protected static final int MSG_SHOW_NEXT_AFFILIATED_TASK = 1024;
     protected static final int MSG_SHOW_PREV_AFFILIATED_TASK = 1025;
-<<<<<<< HEAD
     protected static final int MSG_TOGGLE_LAST_APP = 1032;
     protected static final int MSG_TOGGLE_KILL_APP = 1033;
     protected static final int MSG_TOGGLE_SCREENSHOT = 1034;
-=======
-    protected static final int MSG_TOGGLE_LAST_APP = 1026;
-    protected static final int MSG_TOGGLE_KILL_APP = 1027;
-    protected static final int MSG_TOGGLE_SCREENSHOT = 1028;
-    protected static final int MSG_CLEAR_RECENT_APPS = 1029;
->>>>>>> 7fd9a54... SystemUI: Allow clearing recents tasks within recents button
 
     protected static final boolean ENABLE_HEADS_UP = true;
     // scores above this threshold should be displayed in heads up mode.
@@ -1074,13 +1061,6 @@ public abstract class BaseStatusBar extends SystemUI implements
     }
 
     @Override
-    public void clearRecentApps() {
-        int msg = MSG_CLEAR_RECENT_APPS;
-        mHandler.removeMessages(msg);
-        mHandler.sendEmptyMessage(msg);
-    }
-
-    @Override
     public void preloadRecentApps() {
         int msg = MSG_PRELOAD_RECENT_APPS;
         mHandler.removeMessages(msg);
@@ -1179,24 +1159,10 @@ public abstract class BaseStatusBar extends SystemUI implements
         }
     }
 
-    protected boolean isRecentAppsVisible() {
-        return RecentsActivity.isActivityShowing();
-    }
-
-    protected boolean hasRecentApps() {
-        return RecentsActivity.hasTaskStacks();
-    }
-
     protected void toggleRecents() {
         if (mRecents != null) {
             sendCloseSystemWindows(mContext, SYSTEM_DIALOG_REASON_RECENT_APPS);
             mRecents.toggleRecents(mDisplay, mLayoutDirection, getStatusBarView());
-        }
-    }
-
-    protected void clearRecents() {
-        if (mRecents != null) {
-            mRecents.clearRecents();
         }
     }
 
@@ -1303,9 +1269,6 @@ public abstract class BaseStatusBar extends SystemUI implements
                  break;
              case MSG_TOGGLE_RECENTS_APPS:
                  toggleRecents();
-                 break;
-             case MSG_CLEAR_RECENT_APPS:
-                 clearRecents();
                  break;
              case MSG_PRELOAD_RECENT_APPS:
                   preloadRecents();

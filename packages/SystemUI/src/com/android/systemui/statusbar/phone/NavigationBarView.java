@@ -126,13 +126,8 @@ public class NavigationBarView extends LinearLayout {
     private Drawable mBackIcon, mBackLandIcon, mBackAltIcon, mBackAltLandIcon;
     private Drawable mRecentIcon;
     private Drawable mRecentLandIcon;
-<<<<<<< HEAD
 
     private int mRippleColor;
-=======
-    private Drawable mHomeIcon, mHomeLandIcon;
-    private Drawable mRecentAltIcon, mRecentAltLandIcon;
->>>>>>> 7fd9a54... SystemUI: Allow clearing recents tasks within recents button
 
     private NavigationBarViewTaskSwitchHelper mTaskSwitchHelper;
     private DeadZone mDeadZone;
@@ -358,48 +353,7 @@ public class NavigationBarView extends LinearLayout {
         mBackAltIcon = res.getDrawable(R.drawable.ic_sysbar_back_ime);
         mBackAltLandIcon = mBackAltIcon;
         mRecentIcon = res.getDrawable(R.drawable.ic_sysbar_recent);
-<<<<<<< HEAD
         mRecentLandIcon = mRecentIcon;
-=======
-        mRecentLandIcon = res.getDrawable(R.drawable.ic_sysbar_recent_land);
-        mHomeIcon = res.getDrawable(R.drawable.ic_sysbar_home);
-        mRecentAltIcon = res.getDrawable(R.drawable.ic_sysbar_recent_clear);
-        mRecentAltLandIcon = mRecentAltIcon;
-    }
-
-    public void updateResources(Resources res) {
-        mThemedResources = res;
-        getIcons(mThemedResources);
-        mBarTransitions.updateResources(res);
-        for (int i = 0; i < mRotatedViews.length; i++) {
-            ViewGroup container = (ViewGroup) mRotatedViews[i];
-            if (container != null) {
-                updateLightsOutResources(container);
-            }
-        }
-        if (mEditBar != null) {
-            mEditBar.updateResources(res);
-        }
-    }
-
-    private void updateLightsOutResources(ViewGroup container) {
-        ViewGroup lightsOut = (ViewGroup) container.findViewById(R.id.lights_out);
-        if (lightsOut != null) {
-            final int nChildren = lightsOut.getChildCount();
-            for (int i = 0; i < nChildren; i++) {
-                final View child = lightsOut.getChildAt(i);
-                if (child instanceof ImageView) {
-                    final ImageView iv = (ImageView) child;
-                    // clear out the existing drawable, this is required since the
-                    // ImageView keeps track of the resource ID and if it is the same
-                    // it will not update the drawable.
-                    iv.setImageDrawable(null);
-                    iv.setImageDrawable(mThemedResources.getDrawable(
-                            R.drawable.ic_sysbar_lights_out_dot_large));
-                }
-            }
-        }
->>>>>>> 7fd9a54... SystemUI: Allow clearing recents tasks within recents button
     }
 
     @Override
@@ -480,18 +434,10 @@ public class NavigationBarView extends LinearLayout {
 
             }
 
-<<<<<<< HEAD
             KeyButtonView rightMenuKeyView = generateMenuKey(landscape, KEY_MENU_RIGHT);
             rightMenuKeyView.setLongClickCallback(mCallback);
             addButton(navButtonLayout, rightMenuKeyView, landscape);
             addLightsOutButton(lightsOut, rightMenuKeyView, landscape, true);
-=======
-        ((ImageView)getRecentsButton()).setImageDrawable(
-                    (0 != (hints & StatusBarManager.NAVIGATION_HINT_RECENT_ALT))
-                            ? (mVertical ? mRecentAltLandIcon : mRecentAltIcon)
-                            : (mVertical ? mRecentLandIcon : mRecentIcon));
-        ((ImageView)getHomeButton()).setImageDrawable(mVertical ? mHomeLandIcon : mHomeIcon);
->>>>>>> 7fd9a54... SystemUI: Allow clearing recents tasks within recents button
 
             KeyButtonView rightImeArrow = generateMenuKey(landscape, KEY_IME_RIGHT);
             addButton(navButtonLayout, rightImeArrow, landscape);
@@ -713,10 +659,6 @@ public class NavigationBarView extends LinearLayout {
         getRightImeArrowButton().setVisibility(mIsImeArrowVisible ? View.VISIBLE : View.GONE);
 
         setDisabledFlags(mDisabledFlags, true);
-    }
-
-    public int getNavigationIconHints() {
-        return mNavigationIconHints;
     }
 
     public void setDisabledFlags(int disabledFlags) {
