@@ -17,9 +17,7 @@
  */
 -->
 
-
 <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
     android:src="@drawable/ic_lock_airplane_mode_off_am_alpha"
     android:autoMirrored="true"
     android:tint="?attr/colorAccent" />
-

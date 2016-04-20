@@ -83,8 +83,6 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
     List<TaskStackView> mTaskStackViews = new ArrayList<>();
     RecentsAppWidgetHostView mSearchBar;
     RecentsViewCallbacks mCb;
-    View mClearRecents;
-    View mFloatingButton;
 
     public RecentsView(Context context) {
         super(context);
@@ -340,7 +338,7 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
                 mConfig.systemInsets.right, searchBarSpaceBounds, taskStackBounds);
 
             FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)
-                    mFloatingButton.getLayoutParams();
+                    mClearRecents.getLayoutParams();
             params.topMargin = taskStackBounds.top;
 
         }
@@ -364,6 +362,7 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
 
         setMeasuredDimension(width, height);
     }
+
 
 
     /**
