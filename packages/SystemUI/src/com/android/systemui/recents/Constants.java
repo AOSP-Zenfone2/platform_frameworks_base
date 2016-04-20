@@ -66,6 +66,7 @@ public class Constants {
             public static final int RECENTS_CLEAR_ALL_BOTTOM_RIGHT = 3;
             public static final int RECENTS_CLEAR_ALL_BOTTOM_LEFT  = 4;
             public static final int RECENTS_CLEAR_ALL_BOTTOM_CENTER  = 5;
+
         }
     }
 
