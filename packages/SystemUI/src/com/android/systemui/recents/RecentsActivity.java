@@ -561,7 +561,6 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
 
         // Animate the SystemUI scrim views
         mScrimViews.startEnterRecentsAnimation();
-        mRecentsView.startFABanimation();
     }
 
     @Override
@@ -622,8 +621,6 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
 
         // Dismiss Recents to the focused Task or Home
         dismissRecentsToFocusedTaskOrHome(true);
-
-        mRecentsView.endFABanimation();
     }
 
     /** Called when debug mode is triggered */
@@ -673,25 +670,21 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
     public void onExitToHomeAnimationTriggered() {
         // Animate the SystemUI scrim views out
         mScrimViews.startExitRecentsAnimation();
-        mRecentsView.endFABanimation();
     }
 
     @Override
     public void onTaskViewClicked() {
-        mRecentsView.endFABanimation();
     }
 
     @Override
     public void onTaskLaunchFailed() {
         // Return to Home
         dismissRecentsToHomeRaw(true);
-        mRecentsView.endFABanimation();
     }
 
     @Override
     public void onAllTaskViewsDismissed() {
         mFinishLaunchHomeRunnable.run();
-        mRecentsView.endFABanimation();
     }
 
     @Override
