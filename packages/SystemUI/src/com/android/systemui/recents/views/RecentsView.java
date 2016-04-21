@@ -348,6 +348,7 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
                 mConfig.systemInsets.right, searchBarSpaceBounds, taskStackBounds);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
@@ -400,6 +401,8 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
 =======
 >>>>>>> parent of 79d9479... Add clear all recents action to recents panel (Squashed)
         }
+=======
+>>>>>>> parent of 1e235f9... Fix up 'clear recents' UX
 
         // Measure each TaskStackView with the full width and height of the window since the
         // transition view is a child of that stack view
