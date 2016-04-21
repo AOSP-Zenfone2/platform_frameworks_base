@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2014 The Android Open Source Project
  *
@@ -85,6 +84,10 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
     List<TaskStackView> mTaskStackViews = new ArrayList<>();
     RecentsAppWidgetHostView mSearchBar;
     RecentsViewCallbacks mCb;
+<<<<<<< HEAD
+=======
+    View mClearRecents;
+>>>>>>> parent of c084889... fab fixes
 
     public RecentsView(Context context) {
         super(context);
@@ -352,11 +355,28 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         Rect taskStackBounds = new Rect();
         mConfig.getAvailableTaskStackBounds(width, height, mConfig.systemInsets.top,
                 mConfig.systemInsets.right, searchBarSpaceBounds, taskStackBounds);
+<<<<<<< HEAD
+=======
+
+
+
+            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)
+                    mClearRecents.getLayoutParams();
+            params.topMargin = taskStackBounds.top;
+
+
+
+
+>>>>>>> parent of c084889... fab fixes
         if (mClearRecents != null && showClearAllRecents) {
             int clearRecentsLocation = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.RECENTS_CLEAR_ALL_LOCATION,
             Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_RIGHT, UserHandle.USER_CURRENT);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of c084889... fab fixes
             FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)
                     mClearRecents.getLayoutParams();
             params.topMargin = taskStackBounds.top;
@@ -371,8 +391,17 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
                     break;
             }
             mClearRecents.setLayoutParams(params);
+<<<<<<< HEAD
         } else {
             mClearRecents.setVisibility(View.GONE);
+=======
+
+
+
+        } else {
+            mClearRecents.setVisibility(View.GONE);
+
+>>>>>>> parent of c084889... fab fixes
         }
 
         // Measure each TaskStackView with the full width and height of the window since the
@@ -395,6 +424,7 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         setMeasuredDimension(width, height);
     }
 
+
     public void noUserInteraction() {
         if (mClearRecents != null) {
             mClearRecents.setVisibility(View.VISIBLE);
@@ -411,6 +441,7 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
             }
         });
     }
+
 
     /**
      * This is called with the full size of the window since we are handling our own insets.
