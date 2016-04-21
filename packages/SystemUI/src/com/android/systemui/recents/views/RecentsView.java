@@ -31,7 +31,6 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowInsets;
@@ -48,8 +47,6 @@ import com.android.systemui.recents.model.RecentsPackageMonitor;
 import com.android.systemui.recents.model.RecentsTaskLoader;
 import com.android.systemui.recents.model.Task;
 import com.android.systemui.recents.model.TaskStack;
-
-import com.android.systemui.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,13 +80,6 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
     List<TaskStackView> mTaskStackViews = new ArrayList<>();
     RecentsAppWidgetHostView mSearchBar;
     RecentsViewCallbacks mCb;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    View mClearRecents;
->>>>>>> parent of c084889... fab fixes
-=======
->>>>>>> parent of 79d9479... Add clear all recents action to recents panel (Squashed)
 
     public RecentsView(Context context) {
         super(context);
@@ -340,69 +330,9 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
                     MeasureSpec.makeMeasureSpec(searchBarSpaceBounds.height(), MeasureSpec.EXACTLY));
         }
 
-        boolean showClearAllRecents = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.SHOW_CLEAR_ALL_RECENTS, 0, UserHandle.USER_CURRENT) != 0;
-
         Rect taskStackBounds = new Rect();
         mConfig.getAvailableTaskStackBounds(width, height, mConfig.systemInsets.top,
                 mConfig.systemInsets.right, searchBarSpaceBounds, taskStackBounds);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-
-            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)
-                    mClearRecents.getLayoutParams();
-            params.topMargin = taskStackBounds.top;
-
-<<<<<<< HEAD
-
-
-
->>>>>>> parent of c084889... fab fixes
-        if (mClearRecents != null && showClearAllRecents) {
-=======
-        if (mFloatingButton != null && showClearAllRecents) {
->>>>>>> parent of 4473dc1... Fix SystemUI FC caused by Recents Clear-All Mod
-            int clearRecentsLocation = Settings.System.getIntForUser(
-                mContext.getContentResolver(), Settings.System.RECENTS_CLEAR_ALL_LOCATION,
-            Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_RIGHT, UserHandle.USER_CURRENT);
-
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of c084889... fab fixes
-            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)
-                    mClearRecents.getLayoutParams();
-            params.topMargin = taskStackBounds.top;
-            params.rightMargin = width - taskStackBounds.right;
-            switch (clearRecentsLocation) {
-                case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_LEFT:
-                    params.gravity = Gravity.TOP | Gravity.LEFT;
-                    break;
-                case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_RIGHT:
-                default:
-                    params.gravity = Gravity.TOP | Gravity.RIGHT;
-                    break;
-            }
-            mClearRecents.setLayoutParams(params);
-<<<<<<< HEAD
-        } else {
-            mClearRecents.setVisibility(View.GONE);
-=======
-
-
-
-        } else {
-            mClearRecents.setVisibility(View.GONE);
-
->>>>>>> parent of c084889... fab fixes
-=======
->>>>>>> parent of 79d9479... Add clear all recents action to recents panel (Squashed)
-        }
-=======
->>>>>>> parent of 1e235f9... Fix up 'clear recents' UX
 
         // Measure each TaskStackView with the full width and height of the window since the
         // transition view is a child of that stack view
@@ -423,28 +353,6 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
 
         setMeasuredDimension(width, height);
     }
-
-<<<<<<< HEAD
-
-=======
-    public void noUserInteraction() {
-        if (mClearRecents != null) {
-            mClearRecents.setVisibility(View.VISIBLE);
-        }
-    }
-
-    @Override
-    protected void onAttachedToWindow () {
-        super.onAttachedToWindow();
-        mFloatingButton = ((View)getParent()).findViewById(R.id.floating_action_button);
-        mClearRecents = ((View)getParent()).findViewById(R.id.clear_recents);
-        mClearRecents.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                dismissAllTasksAnimated();
-            }
-        });
-    }
->>>>>>> parent of f0eccba... Add Fade in & Fade out effect to Recents FAB
 
     /**
      * This is called with the full size of the window since we are handling our own insets.

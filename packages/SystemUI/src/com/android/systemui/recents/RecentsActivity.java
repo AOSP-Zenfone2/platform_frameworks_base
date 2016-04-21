@@ -255,65 +255,13 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
                 }
             });
             mRecentsView.setSearchBarVisibility(View.GONE);
-<<<<<<< HEAD
-            findViewById(R.id.floating_action_button).setVisibility(View.GONE);
-=======
-
-<<<<<<< HEAD
->>>>>>> parent of c084889... fab fixes
-
-=======
->>>>>>> parent of 79d9479... Add clear all recents action to recents panel (Squashed)
         } else {
             if (mEmptyView != null) {
                 mEmptyView.setVisibility(View.GONE);
                 mEmptyView.setOnClickListener(null);
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
             }
-
-            findViewById(R.id.floating_action_button).setVisibility(View.VISIBLE);
->>>>>>> parent of 364ef98... Recents: Fix Clear All Button Dissappearing Again
-
-            findViewById(R.id.clear_recents).setVisibility(View.GONE);
-        } else {
-            if (mEmptyView != null) {
-                mEmptyView.setVisibility(View.GONE);
-            }
-<<<<<<< HEAD
- 
-           findViewById(R.id.floating_action_button).setVisibility(View.VISIBLE);
-
-<<<<<<< HEAD
-<<<<<<< HEAD
             if (mRecentsView.hasValidSearchBar()) {
                 mRecentsView.setSearchBarVisibility(View.VISIBLE);
-=======
-=======
->>>>>>> parent of 41ae3ea... SystemUI: fix recents task view height calculation
-            findViewById(R.id.clear_recents).setVisibility(View.VISIBLE);
-=======
-            boolean showSearchBar = Settings.System.getInt(getContentResolver(),
-                       Settings.System.RECENTS_SHOW_SEARCH_BAR, 1) == 1;
-
->>>>>>> parent of 7444810... fab FIXES
-
-=======
->>>>>>> parent of 79d9479... Add clear all recents action to recents panel (Squashed)
-            if (mRecentsView.hasValidSearchBar()) {
-                mRecentsView.setSearchBarVisibility(View.VISIBLE);
-<<<<<<< HEAD
-
-            }  
-	   findViewById(R.id.floating_action_button).setVisibility(View.VISIBLE);
-            if (!mConfig.searchBarEnabled) {
-                mRecentsView.setSearchBarVisibility(View.GONE);
-
->>>>>>> parent of c084889... fab fixes
-=======
->>>>>>> parent of 364ef98... Recents: Fix Clear All Button Dissappearing Again
             } else {
                 refreshSearchWidgetView();
             }
