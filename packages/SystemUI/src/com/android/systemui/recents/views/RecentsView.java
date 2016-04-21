@@ -16,6 +16,8 @@
 
 package com.android.systemui.recents.views;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.ActivityOptions;
 import android.app.TaskStackBuilder;
 import android.content.Context;
@@ -31,6 +33,7 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.ViewAnimationUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -81,6 +84,8 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
     List<TaskStackView> mTaskStackViews = new ArrayList<>();
     RecentsAppWidgetHostView mSearchBar;
     RecentsViewCallbacks mCb;
+    View mClearRecents;
+    View mFloatingButton;
 
     public RecentsView(Context context) {
         super(context);
@@ -349,30 +354,39 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         mConfig.getAvailableTaskStackBounds(width, height, mConfig.systemInsets.top,
                 mConfig.systemInsets.right, searchBarSpaceBounds, taskStackBounds);
 
-
         if (mFloatingButton != null && showClearAllRecents) {
             int clearRecentsLocation = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.RECENTS_CLEAR_ALL_LOCATION,
-            Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_RIGHT, UserHandle.USER_CURRENT);
+            Constants.DebugFlags.App.RECENTS_CLEAR_ALL_BOTTOM_RIGHT, UserHandle.USER_CURRENT);
 
             FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)
-                    mClearRecents.getLayoutParams();
+                    mFloatingButton.getLayoutParams();
             params.topMargin = taskStackBounds.top;
-            params.rightMargin = width - taskStackBounds.right;
             switch (clearRecentsLocation) {
                 case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_LEFT:
                     params.gravity = Gravity.TOP | Gravity.LEFT;
                     break;
                 case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_RIGHT:
-                default:
                     params.gravity = Gravity.TOP | Gravity.RIGHT;
                     break;
+                case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_CENTER:
+                    params.gravity = Gravity.TOP | Gravity.CENTER;
+                    break;
+                case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_BOTTOM_LEFT:
+                    params.gravity = Gravity.BOTTOM | Gravity.LEFT;
+                    break;
+                case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_BOTTOM_RIGHT:
+                default:
+                    params.gravity = Gravity.BOTTOM | Gravity.RIGHT;
+                    break;
+                case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_BOTTOM_CENTER:
+                    params.gravity = Gravity.BOTTOM | Gravity.CENTER;
+                    break;
             }
-            mClearRecents.setLayoutParams(params);
+            mFloatingButton.setLayoutParams(params);
         } else {
-            mClearRecents.setVisibility(View.GONE);
+            mFloatingButton.setVisibility(View.GONE);
         }
-
 
         // Measure each TaskStackView with the full width and height of the window since the
         // transition view is a child of that stack view
@@ -400,9 +414,32 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         }
     }
 
+    public void startFABanimation() {
+        // Animate the action button in
+        mFloatingButton = ((View)getParent()).findViewById(R.id.floating_action_button);
+        mFloatingButton.animate().alpha(1f)
+                .setStartDelay(mConfig.taskBarEnterAnimDelay)
+                .setDuration(mConfig.taskBarEnterAnimDuration)
+                .setInterpolator(mConfig.fastOutLinearInInterpolator)
+                .withLayer()
+                .start();
+    }
+
+    public void endFABanimation() {
+        // Animate the action button away
+        mFloatingButton = ((View)getParent()).findViewById(R.id.floating_action_button);
+        mFloatingButton.animate().alpha(0f)
+                .setStartDelay(0)
+                .setDuration(mConfig.taskBarExitAnimDuration)
+                .setInterpolator(mConfig.fastOutLinearInInterpolator)
+                .withLayer()
+                .start();
+    }
+
     @Override
     protected void onAttachedToWindow () {
         super.onAttachedToWindow();
+        mFloatingButton = ((View)getParent()).findViewById(R.id.floating_action_button);
         mClearRecents = ((View)getParent()).findViewById(R.id.clear_recents);
         mClearRecents.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

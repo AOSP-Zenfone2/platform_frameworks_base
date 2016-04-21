@@ -3271,20 +3271,13 @@ public final class Settings {
          */
         public static final String NAVIGATION_BAR_BUTTON_TINT_MODE = "navigation_bar_button_tint_mode";
 
-
         /**
-         * show clear all recents button
-         *  @hide
-         */
-        public static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
-
-
-
-        /**
-         * location of the clear all rectents button
+         * Action to perform when the assistant (search) key is pressed. (Default is 3)
+         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
          * @hide
          */
-        public static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
+        public static final String KEY_ASSIST_ACTION = "key_assist_action";
+
 
 
 
