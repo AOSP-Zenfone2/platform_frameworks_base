@@ -618,9 +618,12 @@ public class TaskStackView extends FrameLayout implements TaskStack.TaskStackCal
 
 <<<<<<< HEAD
     public void dismissAllTasks() {
+        final int count = mStack.getTasks().size();
+        final ArrayList<Task> tasks = mStack.getTasks();
         post(new Runnable() {
             @Override
             public void run() {
+<<<<<<< HEAD
                 ArrayList<Task> tasks = new ArrayList<Task>();
                 tasks.addAll(mStack.getTasks());
                 // Remove visible TaskViews
@@ -634,10 +637,12 @@ public class TaskStackView extends FrameLayout implements TaskStack.TaskStackCal
                 int size = tasks.size();
                 // Remove any other Tasks
                 for (int i = 0; i < size; i++) {
+=======
+                for (int i = 0; i < count; i++) {
+>>>>>>> parent of eb69f15... Fix - place Clear Recents button above the nav bar.
                     Task t = tasks.get(i);
-                    if (mStack.getTasks().contains(t)) {
-                        mStack.removeTask(t);
-                    }
+                    TaskView tv = getChildViewForTask(t);
+                    tv.dismissTask();
                 }
             }
         });
