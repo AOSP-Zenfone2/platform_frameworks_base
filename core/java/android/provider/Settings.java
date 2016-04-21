@@ -3082,6 +3082,12 @@ public final class Settings {
         /** @hide */
         public static final Validator LOCKSCREEN_SOUNDS_ENABLED_VALIDATOR = sBooleanValidator;
 
+         /**
+         * Whether to dismiss all recents tasks
+         * @hide
+         */
+        public static final String RECENTS_CLEAR_ALL_DISMISS_ALL = "recents_clear_all_dismiss_all";
+
         /**
          * Whether the lockscreen should be completely disabled.
          * @hide
@@ -3415,6 +3421,13 @@ public final class Settings {
          * @hide
          */
         public static final String KEY_ASSIST_LONG_PRESS_ACTION = "key_assist_long_press_action";
+
+        /**
+          * Action to perform when the assistant (search) key is pressed. (Default is 3)
+          * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
+          * @hide
+          */
+         public static final String KEY_ASSIST_ACTION = "key_assist_action";
 
         /**
          * Action to perform when the app switch key is pressed. (Default is 2)
