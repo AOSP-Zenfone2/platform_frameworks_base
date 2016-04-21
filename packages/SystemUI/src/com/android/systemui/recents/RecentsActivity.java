@@ -259,13 +259,17 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
             findViewById(R.id.floating_action_button).setVisibility(View.GONE);
 =======
 
+<<<<<<< HEAD
 >>>>>>> parent of c084889... fab fixes
 
+=======
+>>>>>>> parent of 79d9479... Add clear all recents action to recents panel (Squashed)
         } else {
             if (mEmptyView != null) {
                 mEmptyView.setVisibility(View.GONE);
                 mEmptyView.setOnClickListener(null);
 
+<<<<<<< HEAD
 
             findViewById(R.id.clear_recents).setVisibility(View.GONE);
         } else {
@@ -284,6 +288,8 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
 >>>>>>> parent of 41ae3ea... SystemUI: fix recents task view height calculation
             findViewById(R.id.clear_recents).setVisibility(View.VISIBLE);
 
+=======
+>>>>>>> parent of 79d9479... Add clear all recents action to recents panel (Squashed)
             if (mRecentsView.hasValidSearchBar()) {
                 mRecentsView.setSearchBarVisibility(View.VISIBLE);
 

@@ -616,6 +616,7 @@ public class TaskStackView extends FrameLayout implements TaskStack.TaskStackCal
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
     public void dismissAllTasks() {
         post(new Runnable() {
             @Override
@@ -644,6 +645,8 @@ public class TaskStackView extends FrameLayout implements TaskStack.TaskStackCal
 >>>>>>> parent of c084889... fab fixes
 
 
+=======
+>>>>>>> parent of 79d9479... Add clear all recents action to recents panel (Squashed)
     @Override
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);
