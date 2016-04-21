@@ -272,6 +272,7 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
             if (mEmptyView != null) {
                 mEmptyView.setVisibility(View.GONE);
             }
+<<<<<<< HEAD
  
            findViewById(R.id.floating_action_button).setVisibility(View.VISIBLE);
 
@@ -279,6 +280,8 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
             if (mRecentsView.hasValidSearchBar()) {
                 mRecentsView.setSearchBarVisibility(View.VISIBLE);
 =======
+=======
+>>>>>>> parent of 41ae3ea... SystemUI: fix recents task view height calculation
             findViewById(R.id.clear_recents).setVisibility(View.VISIBLE);
 
             if (mRecentsView.hasValidSearchBar()) {
