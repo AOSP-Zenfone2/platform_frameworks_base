@@ -385,7 +385,7 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
             }
             mFloatingButton.setLayoutParams(params);
         } else {
-            mFloatingButton.setVisibility(View.VISIBLE);
+            mFloatingButton.setVisibility(View.GONE);
         }
 
         // Measure each TaskStackView with the full width and height of the window since the
