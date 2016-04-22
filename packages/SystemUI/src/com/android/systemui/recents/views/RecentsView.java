@@ -385,7 +385,7 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
             }
             mFloatingButton.setLayoutParams(params);
         } else {
-            mFloatingButton.setVisibility(View.GONE);
+            mFloatingButton.setVisibility(View.VISIBLE);
         }
 
         // Measure each TaskStackView with the full width and height of the window since the
@@ -409,8 +409,8 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
     }
 
     public void noUserInteraction() {
-        if (mClearRecents != null) {
-            mClearRecents.setVisibility(View.VISIBLE);
+     if (mClearRecents != null) {
+             mClearRecents.setVisibility(View.VISIBLE);
         }
     }
 
